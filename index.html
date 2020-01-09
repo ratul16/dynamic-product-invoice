@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Document</title>
+    <style>
+    .space {
+        margin:10%;
+    }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h3 class="text-center">Dynamic Product Invoice</h3>
+        <div class="space"></div>
+        <!-- <form class="form-group"> -->
+        <div class="row justify-content-between clearfix">
+            <div class="input-group">
+                <div class="col-4">
+                    <label for="exampleFormControlTextarea1">Reference Number</label>
+                    <input type="number" class="form-control" placeholder="" />
+                </div>
+    
+                <div class="col-4">
+                    <label for="exampleFormControlTextarea1">Invoice Number</label>
+                    <input type="number" class="form-control" placeholder="" />
+                </div>
+    
+                <div class="col-4">
+                    <label for="exampleFormControlTextarea1">Due Date</label>
+                    <input type="date" class="form-control" placeholder="" />
+                </div>
+            </div>
+        </div>
+        <div class="space"></div>
+        <div class="row justify-content-between">
+            <div class="col-md-12">
+                <table class="table table-borderless table-hover text-center" id="tab_logic">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Tax</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Inline Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id='addr0'>
+                            <td colspan="">1</td>
+                            <td><input type="text" name='product[]' placeholder='' class="form-control"></td>
+                            <td><input type="number" name='qty[]' placeholder='' class="form-control qty" step="0" min="0">
+                            </td>
+                            <td><input type="number" name='tax[]' placeholder='' class="form-control tax" step="0.00"
+                                    min="0"></td>
+                            <td><input type="number" name='price[]' placeholder='' class="form-control price" step="0.00"
+                                    min="0"></td>
+                            <td><input type="number" name='total[]' placeholder='0.00' class="form-control total" readonly>
+                            </td>
+                        </tr>
+                        <tr id='addr1'></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <div class="row justify-content-between">
+            <div class="col-8">
+                <button id="add_row" class="btn btn-success">+</button>
+                <button id='delete_row' class="btn btn-danger">-</button>
+            </div>
+            <div class="col-4" id="tab_logic_total">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text">Sub Total</label>
+                    </div>
+                    <input type="number" name='sub_total' placeholder='0.00' class="form-control" id="sub_total" readonly />
+                    <div class="input-group-append">
+                        <span class="input-group-text" readonly>BDT</span>
+                    </div>
+                </div>
+    
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text">Discount</label>
+                    </div>
+                    <input type="number" class="form-control" id="tax" placeholder="0">
+                    <div class="input-group-append">
+                        <span class="input-group-text">%</span>
+                    </div>
+                </div>
+    
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text">Total</label>
+                    </div>
+                    <input type="number" name='total_amount' id="total_amount" placeholder='0.00' class="form-control"
+                        readonly />
+                    <div class="input-group-append">
+                        <span class="input-group-text" readonly>BDT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="space"></div>
+    
+        <button type="button" class="btn btn-primary">Send Invoice</button>
+        <button type="button" class="btn btn-danger">Delete Invoice</button>
+        <!-- </form> -->
+    
+    </div>
+
+    <script src="invoice.js"></script>
+    
+
+</body>
+
+</html>
